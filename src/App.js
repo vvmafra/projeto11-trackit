@@ -1,8 +1,8 @@
-import Home from "./components/Home";
-import Register from "./components/Register";
-import Habits from "./components/Habits";
-import Today from "./components/Today";
-import Historic from "./components/Historic";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Habits from "./pages/Habits";
+import Today from "./pages/Today";
+import Historic from "./pages/Historic";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState } from "react"
 

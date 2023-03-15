@@ -1,11 +1,10 @@
 import styled from "styled-components"
 
-export default function Register() {
+export default function Historic() {
 
     return(
         <>
-        cadastro
+        Historico
         </>
     )
-
 }
