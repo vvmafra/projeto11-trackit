@@ -1,18 +1,72 @@
 import styled from "styled-components"
 import CompleteLogo from "../images/logo-completa.svg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react"
+import Loading from "../components/ThreeDots"
+import { useContext } from "react"
+import DataContext from "../DataContext"
+import axios from "axios"
 
-export default function Home() {
+
+export default function Home({ token, setToken}) {
+    const [disabled, setDisabled] = useState(false)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const navigate = useNavigate()
+    const { setImage } = useContext(DataContext)
+
+    
+
+    function login(e){
+        e.preventDefault()
+
+        const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
+        const body = { email, password }
+
+        const promise = axios.post(URL, body)
+        promise.then(res => {
+            console.log(res.data)
+            setToken(res.data.token)
+            setImage(res.data.image)
+            navigate("/hoje")
+        })
+        promise.catch(err => alert(err.responde.data.message))
+    }
+
+    if (token === "") {
+        setDisabled(true)
+    }
+
 
     return(
         <HomeContainer>
             <img src={CompleteLogo}></img>
+            <form onSubmit={login}>
+                <InputsContainer>
+                    <input 
+                    placeholder="email"
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required
+                    ></input>
 
-            <InputsContainer>
-                <input placeholder="email"></input>
-                <input placeholder="senha"></input>
-                <button>Entrar</button>
-            </InputsContainer>
+                    <input 
+                    placeholder="senha"
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                    ></input>
+
+                    <button 
+                    type="submit"
+                    disabled={disabled}
+                    >
+                        {disabled ? <Loading/> : "Entrar"}
+                        </button>
+                </InputsContainer>
+            </form>
 
             <Link to="/cadastro">
                 <p>Não tem uma conta? Cadastre-se!</p>
@@ -72,3 +126,8 @@ const InputsContainer = styled.div`
 
 `
 
+const StyledForm = styled.form`
+
+
+
+`
