@@ -28,6 +28,28 @@ export default function Today() {
                         <ion-icon name="checkbox"></ion-icon>
                     </Habit>
 
+                    <Habit>
+                        <Text>
+                            <p>Let 1 capitulo de livro</p>
+
+                            <span>Sequência atual: 4 dias</span>
+                            <span>Seu recorde: 3 dias</span>
+                        </Text>
+
+                        <ion-icon name="checkbox"></ion-icon>
+                    </Habit>
+
+                    <Habit>
+                        <Text>
+                            <p>Let 1 capitulo de livro</p>
+
+                            <span>Sequência atual: 4 dias</span>
+                            <span>Seu recorde: 3 dias</span>
+                        </Text>
+
+                        <ion-icon name="checkbox"></ion-icon>
+                    </Habit>
+
                 </ListHabits>
 
             </CoreToday>
@@ -78,6 +100,7 @@ const Habit = styled.div`
     justify-content: space-between;
     padding: 15px;
     box-sizing: border-box;
+    margin-top: 10px;
     
     p {
         font-family: 'Lexend Deca', sans-serif;
