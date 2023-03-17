@@ -4,7 +4,7 @@ const DataContext = createContext({});
 
 
 export const DataProvider = ({children}) => {
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState(null)
     return(
 
 

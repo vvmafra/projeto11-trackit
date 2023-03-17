@@ -16,7 +16,8 @@ export default function Habits() {
             <NewHabit/>
             <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
         </CoreHabits>
-        <Bottom/>
+        <Bottom
+        data-test="menu"/>
         </>
     )
 }

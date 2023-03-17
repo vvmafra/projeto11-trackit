@@ -8,7 +8,7 @@ import { useState } from "react"
 import { DataProvider } from "./DataContext";
 
 function App() {
-  const [token, setToken] = useState("")
+  const [token, setToken] = useState(null)
 
   return (
     <DataProvider>

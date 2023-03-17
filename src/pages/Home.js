@@ -9,7 +9,7 @@ import axios from "axios"
 
 
 export default function Home({ token, setToken}) {
-    const [disabled, setDisabled] = useState(false)
+    const [disable, setDisable] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
@@ -30,7 +30,11 @@ export default function Home({ token, setToken}) {
             setImage(res.data.image)
             navigate("/hoje")
         })
-        promise.catch(err => alert(err.responde.data.message))
+        promise.catch(err => {
+            alert(err.responde.data.message) 
+            setDisable(true)
+        })
+        setDisable(!disable)
     }
 
 
@@ -45,6 +49,7 @@ export default function Home({ token, setToken}) {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     required
+                    disabled={disable}
                     data-test="email-input"
                     ></input>
 
@@ -54,16 +59,17 @@ export default function Home({ token, setToken}) {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     required
+                    disabled={disable}
                     data-test="password-input"
                     ></input>
 
-                    <button 
+                    <Button 
                     type="submit"
-                    disabled={disabled}
+                    disabled={disable}
                     data-test="login-btn"
                     >
-                        {disabled ? <Loading/> : "Entrar"}
-                        </button>
+                        {disable ? <Loading/> : "Entrar"}
+                        </Button>
                 </InputsContainer>
             </form>
 
@@ -108,12 +114,14 @@ const InputsContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     height: 160px;
-    
-    
-    button {
+
+`
+
+const Button = styled.button`
         width: 303px;
         height: 45px;
         background: #52B6FF;
+        opacity: ${props => props.disabled ? "0.3" : "1"};
         border-radius: 5px;
         border: none;
         font-family: 'Lexend Deca', sans-serif;
@@ -122,12 +130,8 @@ const InputsContainer = styled.div`
         box-sizing: border-box;
         padding: 8px;
         text-align: center;
-    }
-
-`
-
-const StyledForm = styled.form`
-
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
 `

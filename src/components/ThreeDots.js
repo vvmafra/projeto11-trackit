@@ -1,7 +1,9 @@
 import { ThreeDots } from "react-loader-spinner"
+import styled from "styled-components"
 
 export default function Loading(){
     return(
+        <StyledDiv>
         <ThreeDots
             width="80"
             heigth="80"
@@ -13,7 +15,15 @@ export default function Loading(){
             visible={true}
             text-align="center"
             />
+        </StyledDiv>
     )
 
 
 }
+
+const StyledDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+`

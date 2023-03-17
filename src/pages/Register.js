@@ -3,9 +3,11 @@ import CompleteLogo from "../images/logo-completa.svg"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
+import Loading from "../components/ThreeDots"
 
 
 export default function Register() {
+    const [disable, setDisable] = useState(false)
     const navigate = useNavigate()
     const [form, setForm] = useState({ email: "", name: "", image: "", password: "" })
 
@@ -21,7 +23,12 @@ export default function Register() {
     
         const promise = axios.post(URL, body)
         promise.then(res => navigate("/"))
-        promise.catch(err => alert(err.response.data.message))
+        promise.catch(err => {
+            alert(err.response.data.message)
+            setDisable(disable)
+        })
+        setDisable(!disable)
+
       }
 
 
@@ -38,6 +45,7 @@ export default function Register() {
                     value={form.email}
                     onChange={handleChange}
                     required
+                    disabled={disable}
                     data-test="email-input"
                     />
 
@@ -48,6 +56,7 @@ export default function Register() {
                     value={form.password}
                     onChange={handleChange}
                     required
+                    disabled={disable}
                     data-test="password-input"
                     />
 
@@ -58,6 +67,7 @@ export default function Register() {
                     value={form.name}
                     onChange={handleChange}
                     required
+                    disabled={disable}
                     data-test="user-name-input"
                     />
 
@@ -68,10 +78,15 @@ export default function Register() {
                     value={form.image}
                     onChange={handleChange}
                     required
+                    disabled={disable}
                     data-test="user-image-input"
                     />
+
                     <button type="submit"
-                    data-test="signup-btn">Cadastrar</button>
+                    disabled={disable}
+                    data-test="signup-btn">
+                        {disable ? <Loading/> : "Cadastrar"}
+                    </button>
                 </form>
             </InputsContainer>
 
@@ -125,6 +140,9 @@ const InputsContainer = styled.div`
         box-sizing: border-box;
         padding: 8px;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 
