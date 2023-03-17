@@ -7,7 +7,7 @@ export default function Habits() {
 
     return(
         <>
-        <Header/>
+        <Header data-test="header"/>
         <CoreHabits>
             <ContainerTop>
                 <p>Meus hábitos</p>

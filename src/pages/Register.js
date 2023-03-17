@@ -20,7 +20,7 @@ export default function Register() {
         const body = {...form}
     
         const promise = axios.post(URL, body)
-        promise.then(res => navigate("/"), alert("deu boa"))
+        promise.then(res => navigate("/"))
         promise.catch(err => alert(err.response.data.message))
       }
 
@@ -38,6 +38,7 @@ export default function Register() {
                     value={form.email}
                     onChange={handleChange}
                     required
+                    data-test="email-input"
                     />
 
                     <Input
@@ -47,6 +48,7 @@ export default function Register() {
                     value={form.password}
                     onChange={handleChange}
                     required
+                    data-test="password-input"
                     />
 
                     <Input 
@@ -56,6 +58,7 @@ export default function Register() {
                     value={form.name}
                     onChange={handleChange}
                     required
+                    data-test="user-name-input"
                     />
 
                     <Input 
@@ -65,12 +68,15 @@ export default function Register() {
                     value={form.image}
                     onChange={handleChange}
                     required
+                    data-test="user-image-input"
                     />
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit"
+                    data-test="signup-btn">Cadastrar</button>
                 </form>
             </InputsContainer>
 
-            <Link to="/">
+            <Link to="/"
+            data-test="login-link">
                 <p>Já tem uma conta? Faça login!</p>
             </Link>
 

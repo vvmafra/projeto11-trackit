@@ -5,19 +5,22 @@ import { Link } from "react-router-dom";
 export default function Bottom() {
     return (
         <BottomContainer>
-            <Link to="/habitos" style={{ textDecoration: 'none' }}>
+            <Link to="/habitos" style={{ textDecoration: 'none' }}
+            data-test="habit-link" >
                 <div>
                     Hábitos
                 </div>
             </Link>
 
-            <Link to="/hoje" style={{ textDecoration: 'none' }}>
+            <Link to="/hoje" style={{ textDecoration: 'none' }}
+            data-test="today-link">
                 <span>
                     Hoje
                 </span>
             </Link>
 
-            <Link to="/historico" style={{ textDecoration: 'none' }}>
+            <Link to="/historico" style={{ textDecoration: 'none' }}
+            data-test="history-link">
                 <div>
                     Histórico
                 </div>

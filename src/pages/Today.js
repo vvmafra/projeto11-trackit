@@ -6,12 +6,13 @@ export default function Today() {
 
     return (
         <>
-            <Header />
+            <Header data-test="header"/>
 
             <CoreToday>
-                <p>Segunda, 15/03</p>
+                <p data-test="today">Segunda, 15/03</p>
 
-                <FinishedHabits>
+                <FinishedHabits
+                data-test="today-counter">
                     Nenhum hábito concluído ainda
                 </FinishedHabits>
 
@@ -54,7 +55,8 @@ export default function Today() {
 
             </CoreToday>
 
-            <Bottom />
+            <Bottom 
+            data-test="menu"/>
         </>
     )
 }

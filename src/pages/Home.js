@@ -33,10 +33,6 @@ export default function Home({ token, setToken}) {
         promise.catch(err => alert(err.responde.data.message))
     }
 
-    if (token === "") {
-        setDisabled(true)
-    }
-
 
     return(
         <HomeContainer>
@@ -49,6 +45,7 @@ export default function Home({ token, setToken}) {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     required
+                    data-test="email-input"
                     ></input>
 
                     <input 
@@ -57,18 +54,21 @@ export default function Home({ token, setToken}) {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     required
+                    data-test="password-input"
                     ></input>
 
                     <button 
                     type="submit"
                     disabled={disabled}
+                    data-test="login-btn"
                     >
                         {disabled ? <Loading/> : "Entrar"}
                         </button>
                 </InputsContainer>
             </form>
 
-            <Link to="/cadastro">
+            <Link to="/cadastro"
+            data-test="signup-link">
                 <p>Não tem uma conta? Cadastre-se!</p>
             </Link>
 
