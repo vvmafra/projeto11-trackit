@@ -31,9 +31,14 @@ export default function NewHabit() {
         <NewHabitContainer>
             <input placeholder="nome do hábito"></input>
 
-            <WeekDays>
+            <WeekDays
+                
+            >
             {weekdays.map((l) => (
-                <button onClick={() => clickWeekday(l.day)}>{l.dayName}</button>
+                <button
+                key={l.day}
+                onClick={() => clickWeekday(l.day)}
+                selected={selectedDays.includes(l.day)}>{l.dayName}</button>
             ))}
             </WeekDays>
             <Buttons>
@@ -71,10 +76,10 @@ const WeekDays = styled.div`
     button {
         width: 30px;
         height: 30px;
-        background-color: #FFFFFF;
+        background-color: ${props => props.selected ? "#CFCFCF" : "#FFFFFF"};
         font-family: 'Lexend Deca', sans-serif;
         font-size: 20px;
-        color: #DBDBDB;
+        color: ${props => props.selected ? "#FFFFFF" : "#DBDBDB"}; 
         border: 1px solid #D5D5D5;
         border-radius: 5px;
         margin-right: 5px;

@@ -8,12 +8,12 @@ export default function Header() {
     const { image } = useContext(DataContext)
 
     return (
+        <div data-test="header">
         <HeaderContainer>
             <p>TrackIt</p>
             <img src={image} />
         </HeaderContainer>
-
-
+        </div>
     )
 }
 
