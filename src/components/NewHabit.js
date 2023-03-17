@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function NewHabit() {
@@ -8,10 +9,22 @@ export default function NewHabit() {
     {dayName: "Q", day: 5},
     {dayName: "S", day: 6},
     {dayName: "S", day: 7}]
+    const [selectedDays, setSelectedDays] = useState([])
+
+    console.log(selectedDays)
 
 
     function clickWeekday(day){
-        console.log(day)
+        setSelectedDays((prevDays) => {
+            if (prevDays.includes(day)) {
+            
+                return prevDays.filter((prevDays) => prevDays !== day);
+                
+            }
+            else {
+                return [...prevDays, day];
+            }
+        })
     }
 
     return (

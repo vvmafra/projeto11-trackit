@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function Bottom() {
     return (
-        <BottomContainer>
+        <div data-test="menu">
+        <BottomContainer >
             <Link to="/habitos" style={{ textDecoration: 'none' }}
             data-test="habit-link" >
                 <div>
@@ -27,7 +28,7 @@ export default function Bottom() {
             </Link>
 
         </BottomContainer>
-
+        </div>
 
     )
 }
