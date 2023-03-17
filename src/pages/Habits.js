@@ -4,6 +4,12 @@ import Bottom from "../components/Bottom"
 import NewHabit from "../components/NewHabit"
 
 export default function Habits() {
+    const {showComponent, setShowComponent} = useState
+
+
+    function newHabit(){
+        alert("oi")
+    }
 
     return(
         <>
@@ -11,13 +17,14 @@ export default function Habits() {
         <CoreHabits>
             <ContainerTop>
                 <p>Meus hábitos</p>
-                <button>+</button>
+                <button
+                onClick={newHabit}>+</button>
             </ContainerTop>
             <NewHabit/>
             <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
         </CoreHabits>
-        <Bottom
-        data-test="menu"/>
+        <Bottom data-test="menu">
+        </Bottom>
         </>
     )
 }

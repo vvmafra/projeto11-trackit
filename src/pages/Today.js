@@ -55,7 +55,8 @@ export default function Today() {
 
             </CoreToday>
 
-            <Bottom />
+            <Bottom data-test="menu">
+            </Bottom>
         </>
     )
 }

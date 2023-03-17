@@ -6,7 +6,7 @@ export default function Historic() {
 
     return(
         <>
-        <Header/>
+        <Header data-test="header"/>
 
         <CoreHistoric>
         <p>Histórico</p>
@@ -15,7 +15,8 @@ export default function Historic() {
                 
 
 
-        <Bottom/>
+        <Bottom data-test="menu">
+        </Bottom>
         </>
     )
 }
