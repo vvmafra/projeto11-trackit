@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Header from "../components/Header"
 import Bottom from "../components/Bottom"
 import NewHabit from "../components/NewHabit"
+import { useState } from "react"
 
 export default function Habits() {
     const {showComponent, setShowComponent} = useState
