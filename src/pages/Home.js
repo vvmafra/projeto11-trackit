@@ -32,7 +32,7 @@ export default function Home({ token, setToken}) {
         })
         promise.catch(err => {
             alert(err.responde.data.message) 
-            setDisable(true)
+            setDisable(disable)
         })
         setDisable(!disable)
     }

@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import personLogo from "../images/person-logo.jpg"
+import personLogo from "../images/person-logo.jpg";
+import { useContext } from "react"
+import DataContext from "../DataContext"
 
 
 export default function Header() {
+    const { image } = useContext(DataContext)
+
     return (
         <HeaderContainer>
             <p>TrackIt</p>
-            <img src={personLogo} />
+            <img src={image} />
         </HeaderContainer>
 
 
