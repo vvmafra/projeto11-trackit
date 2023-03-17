@@ -20,7 +20,7 @@ export default function Home({ token, setToken}) {
     function login(e){
         e.preventDefault()
 
-        const URL = "https://mock-ap.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
+        const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
         const body = { email, password }
 
         const promise = axios.post(URL, body)
@@ -32,7 +32,7 @@ export default function Home({ token, setToken}) {
         })
         promise.catch(err => {
             alert(err.response.data.message)
-            setDisable(disable)
+            (setDisable(disable))
         })
         setDisable(!disable)
     }
